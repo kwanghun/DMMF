@@ -1,0 +1,15 @@
+## News for Package `DMMF`
+
+
+#### Changes in DMMF version 0.2.1
+- Bug fixed: All non-ASCII characters in the manuals are corrected to ASCII character to remove warnings when check the package with `R CMD CHECK --as-CRAN`.
+- Bug fixed: Title and package description parts of the `/man/DMMF-package.Rd` is changed to remove warnings when check the package with `R CMD CHECK --as-CRAN`.
+- README.md and NEWS.md files are added to the package.
+#### Changes in DMMF version 0.2.0
+- The new function named `DMMF_Simple` is added to the package which is the simpler version of `DMMF` function.
+- The `/src/2_2_BoundaryChecker.f95` is changed to convert logical matrix to real value matrix of 1 and 0 smoothly without warning message of "implicit conversion from logical to integer".
+#### Changes in DMMF version 0.1.0
+- The manual of functions in the package are added to the package.
+- Datasets from two potato fields (`Potato.Concave` and `Potato.Convex`) are added to the package.
+
+
