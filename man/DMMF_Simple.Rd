@@ -85,6 +85,7 @@ DMMF_Simple( W, L = W/cos(S), S, R, RI, ET,
     Kwanghun Choi and Bjoern Reineking
 }
 \examples{
+\dontrun{
 ## Load example data for test running DMMF_Simple function
 data(Potato.Convex)
 attach(Potato.Convex)
@@ -126,6 +127,7 @@ Output$Q_out / Output$A
 Output$IF_out / Output$A 
 ## Soil loss per surface area of the field
 (Output$SL_c_out + Output$SL_z_out + Output$SL_s_out) / Output$A 
+}
 }
 \seealso{
     \code{\link{DMMF}} for fields and catchments with more than one element.

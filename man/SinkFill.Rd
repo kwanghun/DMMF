@@ -32,6 +32,7 @@
     Kwanghun Choi
 }
 \examples{
+\dontrun{
 ## Load example data for test running SinkFill function
 data(Potato.Convex)
 attach(Potato.Convex)
@@ -42,6 +43,7 @@ DEM_sinkfilled <- SinkFill( DEM_with_sink )
 plot(DEM_with_sink)
 plot(DEM_sinkfilled)
 plot(DEM_with_sink - DEM_sinkfilled)
+}
 }
 \seealso{
     \code{\link{Potato.Convex}} for the description of the data.

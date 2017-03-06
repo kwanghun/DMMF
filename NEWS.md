@@ -1,6 +1,9 @@
 ## News for Package `DMMF`
 
-
+#### Changes in DMMF version 0.2.3
+- Modifying the source code of MMF Algorithm from `SW_t = dmax1( 0.0, SW - SW_fc )` to `SW_t = dmax1( 0.0d0, SW - SW_fc )` to make 0.0 as double.
+#### Changes in DMMF version 0.2.2
+- Modifying NAMESPACE as import `rgdal` package (import("rgdal"))and import `is` from `methods` package (importfrom("methods", "is")).
 #### Changes in DMMF version 0.2.1
 - Bug fixed: All non-ASCII characters in the manuals are corrected to ASCII character to remove warnings when check the package with `R CMD CHECK --as-CRAN`.
 - Bug fixed: Title and package description parts of the `/man/DMMF-package.Rd` is changed to remove warnings when check the package with `R CMD CHECK --as-CRAN`.

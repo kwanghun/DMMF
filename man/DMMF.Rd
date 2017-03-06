@@ -110,6 +110,7 @@ DMMF(DEM, R, RI, ET, P_c, P_z, P_s, theta_init, theta_sat, theta_fc,
     Kwanghun Choi and Bjoern Reineking
 }
 \examples{
+\dontrun{
 ## Load example data for test running DMMF model
 data(Potato.Convex)
 attach(Potato.Convex)
@@ -135,6 +136,7 @@ plot(Result$Q_out/Result$A)
 plot(Result$SL_out)
 ## 2-a. Total mass of eroded soil per unit surface area from each element
 plot(Result$SL_out/Result$A)
+}
 }
 \seealso{
     \code{\link{DMMF_Simple}} for one element during a day.
