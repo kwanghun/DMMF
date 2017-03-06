@@ -1,5 +1,9 @@
 ## News for Package `DMMF`
 
+#### Changes in DMMF version 0.2.4
+- Add `\dontrun{}` option for `SinkFill` and `DMMF_simple` example to avoid error messages in win-builder. 
+#### Changes in DMMF version 0.2.4
+- Add `\dontrun{}` option for `DMMF` example to avoid error messages in win-builder. 
 #### Changes in DMMF version 0.2.3
 - Modifying the source code of MMF Algorithm from `SW_t = dmax1( 0.0, SW - SW_fc )` to `SW_t = dmax1( 0.0d0, SW - SW_fc )` to make 0.0 as double.
 #### Changes in DMMF version 0.2.2
