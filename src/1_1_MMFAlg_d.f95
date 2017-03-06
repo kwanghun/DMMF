@@ -283,7 +283,7 @@ do j = 1, days
             SW = dmax1( 0.0d0, SW_in + R_sum -& 
                 Q - ET_0( row, col ) )
             ! transferrable soil water
-            SW_t = dmax1( 0.0, SW - SW_fc )
+            SW_t = dmax1( 0.0d0, SW - SW_fc )
 
             if ( SW_t .gt. 0.0d0 ) then
                 IF_out( row, col ) = dmin1( K( row, col ) * dsin( S ) *& 
