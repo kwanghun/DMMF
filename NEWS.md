@@ -1,5 +1,6 @@
 ## News for Package `DMMF`
-#### Changes in DMMF version 0.2.7.9000
+
+#### Changes in DMMF version 0.2.7
 - Change `NAMESPACE` to avoid note messages when build in unstable developement version of R in win-builder.
 - Remove line `exportPattern("^[[:alpha:]]+")`
 - Add line `export("DMMF", "DMMF_Simple", "SinkFill")`
