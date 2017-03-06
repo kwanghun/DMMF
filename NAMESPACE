@@ -1,4 +1,4 @@
-useDynLib(DMMF)
-exportPattern("^[[:alpha:]]+")
+useDynLib(DMMF, .registration = TRUE)
+export("DMMF", "DMMF_Simple", "SinkFill")
 import("raster", "sp", "rgdal")
 importFrom("methods", "is")
