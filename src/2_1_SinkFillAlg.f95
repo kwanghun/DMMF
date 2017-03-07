@@ -45,7 +45,7 @@ subroutine sinkfill(DEM, nr, nc, res, boundary, min_angle, DEM_nosink)
             mxc = min0( nc, c + 1 )
             forall( j= mnr:mxr, k= mnc:mxc, .not.isnan( DEM_t( j, k ) ) ) 
                 DEM_t( j, k ) = dmax1( DEM_t( j, k ), DEM_t( r, c ) +&
-                    res * dsqrt( dble( (j - r)**2 + (k - c)**2 ) ) *&
+                    res * dsqrt( dble( (j - r)**2.0d0 + (k - c)**2.0d0 ) ) *&
                     dtan( min_angle ) )
                 boundary( j, k ) = 1.0d0
             end forall

@@ -7,9 +7,9 @@
 */
 
 /* .Fortran calls */
-extern void F77_NAME(checkboundary)(void *, void *, void *, void *);
-extern void F77_NAME(dmmf)(void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *, void *);
-extern void F77_NAME(sinkfill)(void *, void *, void *, void *, void *, void *, void *);
+extern void F77_NAME(checkboundary)(double, int, int, double);
+extern void F77_NAME(dmmf)(double, int, int, double, int, int, double, double, int, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, int, int, int, int, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double);
+extern void F77_NAME(sinkfill)(double, int, int, double, double, double, double);
 
 static const R_FortranMethodDef FortranEntries[] = {
     {"checkboundary", (DL_FUNC) &F77_NAME(checkboundary),  4},
@@ -21,5 +21,5 @@ static const R_FortranMethodDef FortranEntries[] = {
 void R_init_DMMF(DllInfo *dll)
 {
     R_registerRoutines(dll, NULL, NULL, FortranEntries, NULL);
-    R_useDynamicSymbols(dll, TRUE);
+    R_useDynamicSymbols(dll, FALSE);
 }
