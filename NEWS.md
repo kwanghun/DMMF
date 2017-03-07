@@ -1,5 +1,8 @@
 ## News for Package `DMMF`
 
+#### Changes in DMMF version 0.2.7.4
+- Modify `/src/init.c` for routines to have proper types of elements.
+
 #### Changes in DMMF version 0.2.7.1
 - Add `/src/init.c` to avoid the error message under developement version using `tools::package_native_routine_registration_skeleton('DMMF')`.
 - Before using `package_native_routine_registration_skeleton`, working directory should be set as parent directory of the package.
