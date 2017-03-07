@@ -21,5 +21,5 @@ static const R_FortranMethodDef FortranEntries[] = {
 void R_init_DMMF(DllInfo *dll)
 {
     R_registerRoutines(dll, NULL, NULL, FortranEntries, NULL);
-    R_useDynamicSymbols(dll, FALSE);
+    R_useDynamicSymbols(dll, TRUE);
 }
