@@ -1,11 +1,11 @@
 Package: DMMF
 Type: Package
 Title: Daily Based Morgan--Morgan--Finney (DMMF) Soil Erosion Model
-Version: 0.2.7
+Version: 0.2.7.1
 Date: 2017-02-28
 Author: Kwanghun Choi, Sebastian Arnhold, Bjoern Reineking
 Maintainer: Kwanghun Choi <kwanghun.choi@yahoo.com>
-Description: Implements the daily based Morgan--Morgan--Finney (DMMF) soil erosion model for estimating surface runoff and sediemtns budgets from a field or a catchment on a daily basis.
+Description: Implements the daily based Morgan--Morgan--Finney (DMMF) soil erosion model for estimating surface runoff and sediments budgets from a field or a catchment on a daily basis.
 License: GPL (>= 2)
 Depends: R (>= 3.2.3), raster, sp, rgdal, methods
 NeedsCompilation: yes

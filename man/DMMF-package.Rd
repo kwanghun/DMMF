@@ -44,7 +44,7 @@ Maintainer: Kwanghun Choi (\email{kwanghun.choi@yahoo.com})
     An efficient method for identifying and filling surface depressions in digital elevation models for hydrologic analysis and modelling. \emph{International Journal of Geographical Information Science}, 20(2):193--213.
 
     Morgan, R. P. C. (2001) 
-    A simple approach to soil loss prediction: a revised Morgan--Morgan--Finney model. \emph{CATENA}, 44(4):305--322.
+    A simple approach to soil loss prediction: a revised Morgan--Morgan--Finney model. \emph{Catena}, 44(4):305--322.
 
     Morgan, R. P. C., Morgan, D. D. V., and Finney, H. J. (1984) 
     A predictive model for the assessment of soil erosion risk. \emph{Journal of Agricultural Engineering Research}, 30(0):245--253.

@@ -1,7 +1,7 @@
 \name{DMMF}
 \alias{DMMF}
 \title{Daily based Morgan--Morgan--Finney (DMMF) soil erosion model}
-\concept{soil erosoion model}
+\concept{soil erosion model}
 \description{
     Estimating surface runoff and sediment budget using the Daily based Morgan--Morgan--Finney soil erosion model using the algorithm from Choi et al. (2017)
 }
@@ -40,14 +40,14 @@ DMMF(DEM, R, RI, ET, P_c, P_z, P_s, theta_init, theta_sat, theta_fc,
    \item{DR_c}{Numeric vector or RasterLayer object of detachability of clay particles by surface runoff (unit: g/mm)}
    \item{DR_z}{Numeric vector or RasterLayer object of detachability of silt particles by surface runoff (unit: g/mm)}
    \item{DR_s}{Numeric vector or RasterLayer object of detachability of sand particles by surface runoff (unit: g/mm)}
-   \item{Breaking}{Numeric vector of starting points of each simulation period (0: intraperiod points, 1: breaking points), If \code{breaking} is missing, by default the first day is set to 1 and the other days are set to 0.}
-   \item{Init_point}{Numeric vector of starting points of each rainfall event (0: intraperiod points, 1: breaking points), If \code{Init_point} is missing, \code{Init_point} is set to \code{Breaking} by default.}
+   \item{Breaking}{Numeric vector of starting points of each simulation period (0: during the period points, 1: breaking points), If \code{breaking} is missing, by default the first day is set to 1 and the other days are set to 0.}
+   \item{Init_point}{Numeric vector of starting points of each rainfall event (0: during the period points, 1: breaking points), If \code{Init_point} is missing, \code{Init_point} is set to \code{Breaking} by default.}
    \item{R_Type}{Integer object of each rainfall type for estimating kinetic energy of direct throughfall (DT) (0-8) (see details)}
    \item{slpMode}{Integer object of slope calculation algorithm (2: second order, 3: third order)}
-   \item{ALL}{Logical object of selection for the entire ouput results}
+   \item{ALL}{Logical object of selection for the entire output results}
 }
 \details{
-       \code{R_Type} can be chosen among options appropriate for each regions according to Morgan (2001) and Morgan (2005). Default option adopts recent universial relationships between kinetic energy density and mean hourly rainfall intensity (\code{RI}) from Shin et al. (2016). Default option is recommended when users have measured \code{RI}. Detailed descriptions are described below.
+       \code{R_Type} can be chosen among options appropriate for each regions according to Morgan (2001) and Morgan (2005). Default option adopts recent universal relationships between kinetic energy density and mean hourly rainfall intensity (\code{RI}) from Shin et al. (2016). Default option is recommended when users have measured \code{RI}. Detailed descriptions are described below.
        \tabular{cll}{
         Option\tab Region             \tab Kinetic energy density of throughfall [\eqn{\mathrm{J/m^{2}/mm}}{J/m^2/mm}] \cr
         0     \tab Universal (Default)\tab \eqn{10.3 \cdot \mathrm{RI}^{2/9}}{10.3 * RI^(2/9)} \cr 
@@ -60,7 +60,7 @@ DMMF(DEM, R, RI, ET, P_c, P_z, P_s, theta_init, theta_sat, theta_fc,
         7     \tab Temperate Southern hemisphere \tab \eqn{29.0 \cdot ( 1.0 - 0.6 \cdot \exp( -0.04 \cdot \mathrm{RI} ) )}{29.0 * (1.0 - 0.6 * exp(-0.04 * RI))} \cr
         8    \tab Universal          \tab  \eqn{28.3 \cdot ( 1.0 - 0.52 \cdot \exp( -0.042 \cdot \mathrm{RI} ) )}{28.3 * (1.0 - 0.52 * exp(-0.042 * RI))}
        }
-       Multiflow direction algorithm (MD\eqn{\infty}) from Seibert and McGlynn (2007) is built in the \code{\link{DMMF}} model. 
+       Multi-flow direction algorithm (MD\eqn{\infty}) from Seibert and McGlynn (2007) is built in the \code{\link{DMMF}} model. 
 }
 \value{
     The output of the function \code{DMMF} is a list of RasterLayer or RasterBrick objects containing the following elements:\cr

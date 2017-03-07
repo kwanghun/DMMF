@@ -14,7 +14,7 @@ DMMF_Simple( W, L = W/cos(S), S, R, RI, ET,
 }
 \arguments{
     \item{W}{Width of an element (cell) (unit: m)}
-    \item{L}{Lengh of an element (cell) (unit: m). If \code{L} is not specified, the function assumes \code{L} as \code{W}/cos(\code{S}) (i.e., The function assumes a cell as a subset of DEM with slope angle of \code{S}).}
+    \item{L}{Length of an element (cell) (unit: m). If \code{L} is not specified, the function assumes \code{L} as \code{W}/cos(\code{S}) (i.e., The function assumes a cell as a subset of DEM with slope angle of \code{S}).}
     \item{S}{Slope angle of an element (cell) (unit: rad)}
     \item{R}{Daily rainfall per unit area (unit: mm)}
     \item{RI}{Mean hourly rainfall intensity during a day (unit: mm/h)}

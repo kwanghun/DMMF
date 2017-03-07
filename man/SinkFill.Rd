@@ -14,7 +14,7 @@
 }
 \details{
     The function is the implementation of sink-fill algorithm from Wang \& Liu (2006), which is already implemented as a SAGA-GIS module (see Wichmann (2007)).\cr
-  The function \code{SinkFill} is modified from the original algrorithm with including the option to set the initial boundary manually (e.g., global sink of the field).  
+  The function \code{SinkFill} is modified from the original algorithm with including the option to set the initial boundary manually (e.g., global sink of the field).  
 }
 \value{
     If \code{Boundary} is missing, function automatically identifies internal and external boundary of the input DEM which is in contact with cells having NaN value. 
