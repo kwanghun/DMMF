@@ -1,5 +1,9 @@
 ## News for Package `DMMF`
 
+#### Changes in DMMF version 0.2.7.1
+- Add `/src/init.c` to avoid the error message under developement version using `tools::package_native_routine_registration_skeleton('DMMF')`.
+- Before using `package_native_routine_registration_skeleton`, working directory should be set as parent directory of the package.
+
 #### Changes in DMMF version 0.2.7
 - Change `NAMESPACE` to avoid note messages when build in unstable developement version of R in win-builder.
 - Remove line `exportPattern("^[[:alpha:]]+")`
