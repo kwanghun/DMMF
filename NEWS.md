@@ -1,5 +1,12 @@
 ## News for Package `DMMF`
 
+#### Changes in DMMF version 0.2.8.0
+- Resolve the note message when build the package in the windows systems
+- Error message is that `"Found no calls to: 'R_registerRoutines', 'R_useDynamicSymbols"`.
+- Follow the `init.c` and header files from `stats` package included in R.
+- Add prefix "C\_" for Fortran functions when they are called in R as `.Fortran()`.
+- Ready to submit package to CRAN.
+
 #### Changes in DMMF version 0.2.7.4
 - Modify `/src/init.c` for routines to have proper types of elements.
 
