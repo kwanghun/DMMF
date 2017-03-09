@@ -112,7 +112,7 @@ DMMF <-
             theta_init_m  <- as.array( brick( replicate( as.integer( sum(Init_point) ), mask ) ) + theta_init )
 
 
-        MMF_result <- .Fortran( "DMMF", DEM = DEM_m, nr = nrow(DEM), nc = ncol(DEM), 
+        MMF_result <- .Fortran( C_dmmf, DEM = DEM_m, nr = nrow(DEM), nc = ncol(DEM), 
                                res = res, option = as.integer(slpMode), days = as.integer(days), 
                                R = R_m, RI = RI_m, R_Type = as.integer(R_Type), 
                                ET = ET_m, P_c = P_c_m, P_z = P_z_m, P_s = P_s_m, 

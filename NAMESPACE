@@ -1,6 +1,4 @@
-export(DMMF)
-export(DMMF_Simple)
-export(SinkFill)
+useDynLib(DMMF, .registration = TRUE,.fixes = "C_")
+export(DMMF, DMMF_Simple, SinkFill)
 import("raster", "sp", "rgdal")
 importFrom("methods", "is")
-useDynLib(DMMF, .registration = TRUE)
