@@ -19,7 +19,7 @@ SinkFill <-
         # 2. Boundary check
         if ( missing( Boundary ) )
         { 
-            Boundary_list <- .Fortran(C_checkboundary, PACKAGE = "DMMF", DEM = DEM_m, nr = nrow(DEM), nc=ncol(DEM), boundary = DEM_m*0, NAOK=T)
+            Boundary_list <- .Fortran(C_checkboundary, DEM = DEM_m, nr = nrow(DEM), nc=ncol(DEM), boundary = DEM_m*0, NAOK=T)
             Boundary_m <- Boundary_list$boundary 
         }else{
             Boundary_m <- as.matrix( Boundary ) 
