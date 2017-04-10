@@ -23,4 +23,7 @@ F77_SUB(sinkfill)(double *dem, int *nr, int *nc, double *res, double *boundary, 
 void 
 F77_SUB(checkboundary)(double *dem, int *nr, int *nc, double *boundary);
 
+void 
+F77_SUB(mapchecker)(double *dem, int *nr, int *nc, double *boundary, double *sink, double *stand);
+
 #endif

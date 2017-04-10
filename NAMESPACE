@@ -1,4 +1,4 @@
 useDynLib(DMMF, .registration = TRUE,.fixes = "C_")
-export(DMMF, DMMF_Simple, SinkFill)
+export(DMMF, DMMF_Simple, SinkFill, MapChecker)
 import("raster", "sp", "rgdal")
 importFrom("methods", "is")

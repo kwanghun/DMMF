@@ -1,5 +1,15 @@
 ## News for Package `DMMF`
 
+#### Changes in DMMF version 0.3.0.0
+- Add function `MapChecker` for detect boundary, sink, and stand cells.
+- `B_checker` function is merged to the `MapChecker` function.
+- Modify the `SinkFill` algorithm and `BoundaryCheck` algorithm to work properly.
+
+#### Changes in DMMF version 0.2.8.1
+- Add `B_checker` function to detect boundary cells of the DEM and manual.
+- Modify the `SinkFill` algorithm and `BoundaryCheck` algorithm to work properly.
+- It is not certain but there is a problem when using the values of NA from R in Fortran.
+
 #### Changes in DMMF version 0.2.8.0
 - Resolve the note message when build the package in the windows systems
 - Error message is that `"Found no calls to: 'R_registerRoutines', 'R_useDynamicSymbols"`.

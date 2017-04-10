@@ -22,35 +22,57 @@ subroutine sinkfill(DEM, nr, nc, res, boundary, min_angle, DEM_nosink)
     ! The "DEM_nosink" is the sink filled DEM.
     double precision, dimension( nr, nc ) :: DEM, DEM_t, boundary, DEM_nosink
     ! Dummy variables and the minimum and maximum row and column number.
-    integer :: i, j, k , r, c, mnr, mxr, mnc, mxc
+    integer :: j, k , r, c, mnr, mxr, mnc, mxc
     ! Variables of locations for maximum value and minumum value.
     integer, dimension(2) :: min_loc
     ! Parameters for the NaN value.
     double precision, parameter ::&
         NaN = transfer(z'7ff8000000000000', 1.0d0)
 
-    DEM_t = DEM
+    where( DEM .lt. -99999 ) DEM = NaN
+    DEM_t = DEM; DEM_nosink = DEM
+    where( boundary .lt. -99999 ) boundary = NaN
 
-    do i = 1, size(DEM)
-        min_loc = minloc( DEM_t,&
-            ( ( boundary .eq. 1.0d0 ) .and. (.not. isnan( DEM_t ) ) ) )
+    do while (&
+            count( .not. ( isnan( DEM_t ) .or. (.not. isnan( boundary ) ) ) )&
+            .gt. 0 )
+        min_loc = minloc( DEM_t, &
+            ( boundary .eq. 1.0d0 ) .and. (.not. isnan( DEM_t ) ) )
         r = min_loc(1)
         c = min_loc(2)
-        if ( isnan( DEM_t( r, c ) ) ) then
-            exit
-        else
+        if ( .not. isnan( DEM_t( r, c ) ) ) then
             mnr = max0( 1, r - 1 )
             mxr = min0( nr, r + 1 )
             mnc = max0( 1, c - 1 )
             mxc = min0( nc, c + 1 )
-            forall( j= mnr:mxr, k= mnc:mxc, .not.isnan( DEM_t( j, k ) ) ) 
-                DEM_t( j, k ) = dmax1( DEM_t( j, k ), DEM_t( r, c ) +&
-                    res * dsqrt( dble( (j - r)**2.0d0 + (k - c)**2.0d0 ) ) *&
-                    dtan( min_angle ) )
-                boundary( j, k ) = 1.0d0
-            end forall
-            DEM_nosink(r, c) = DEM_t(r, c)
-            ! order(r, c) = dble(i)
+!            forall ( j = mnr:mxr, k = mnc:mxc,&
+!                    ( isnan( boundary(j, k) )&
+!                    .and. (.not. isnan( DEM_t( j, k ) ) ) ) )
+!                boundary( j, k ) = 1.0d0
+!                DEM_nosink( j, k ) = dmax1( DEM_t( j, k ),& 
+!                    DEM_t( r, c ) + res * dtan( min_angle )&
+!                    * dsqrt( dble( (j - r)**2.0d0 + (k - c)**2.0d0 ) ) )
+!            end forall
+!            DEM_nosink( r, c ) = DEM_t( r, c ) 
+            do j = mnr, mxr
+                do k = mnc, mxc
+                    if ( isnan( boundary(j, k) )&
+                        .and. (.not. isnan( DEM_t( j, k ) ) )&
+                        ) then
+                        boundary( j, k ) = 1.0d0
+                        if ( ( DEM_t( j, k ) .le. DEM_t(r, c) )& 
+                            .and. ( (j .ne. r) .or. (k .ne. c) )& 
+                            ) then
+                            DEM_t( j, k ) = DEM_t( r, c ) +&
+                                res * dtan(min_angle)&
+                                * dsqrt( dble( (j - r)**2.0d0 + (k - c)**2.0d0 ) )
+                            DEM_nosink(j, k) = DEM_t(j, k)
+                        end if
+                    end if
+                end do
+            end do
+!            ! order(r, c) = dble(i)
+            !boundary( r, c ) = NaN
             DEM_t(r, c) = NaN
         end if
     end do
