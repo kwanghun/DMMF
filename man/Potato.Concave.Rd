@@ -57,8 +57,8 @@ Potato.Concave
     Kwanghun Choi and Sebastian Arnhold
 }
 \references{
-    Choi, K., Arnhold, S., Huwe, B., Reineking, B. (2017) 
-    Daily based Morgan--Morgan--Finney (DMMF) model: A spatially distributed conceptual soil erosion model to simulate complex soil surface configurations. \emph{Submitted to Water in Feb, 2017}. 
+    Choi, K., Arnhold, S., Huwe, B., Reineking, B. (2017). 
+    Daily based Morgan--Morgan--Finney (DMMF) model: A spatially distributed conceptual soil erosion model to simulate complex soil surface configurations. \emph{Water}, 9(4), 278. 
 
     Arnhold, S., Ruidisch, M., Bartsch, S., Shope, C., Huwe, B. (2013). 
     Simulation of runoff patterns and soil erosion on mountainous farmland with and without plastic-covered ridge-furrow cultivation in South Korea. \emph{Transactions of the ASABE}, 56(2):667--679.

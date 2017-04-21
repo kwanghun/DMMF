@@ -18,7 +18,7 @@ void
 F77_SUB(slope)(double *m_block, double *res, int *order);
 
 void 
-F77_SUB(sinkfill)(double *dem, int *nr, int *nc, double *res, double *boundary, double *min_angle, double *dem_nosink);
+F77_SUB(sinkfill)(double *dem, int *nr, int *nc, double *res, double *boundary, double *min_angle, double *dem_nosink, double *partition);
 
 void 
 F77_SUB(checkboundary)(double *dem, int *nr, int *nc, double *boundary);

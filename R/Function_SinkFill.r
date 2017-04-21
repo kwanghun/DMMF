@@ -35,12 +35,15 @@ SinkFill <-
         # Run SinkFill module
         SinkFill_result <- .Fortran( C_sinkfill, DEM = DEM_m, nr = nrow( DEM ), 
                                     nc = ncol( DEM ), res = res, boundary = Boundary_m,
-                                    min_angle = min_angle, DEM_nosink = DEM_m,
+                                    min_angle = min_angle, DEM_nosink = DEM_m, partition = DEM_m,
                                     NAOK = T )
 
         # Output
         DEM_nosink <- raster(SinkFill_result$DEM_nosink, xmn = xmn, xmx = xmx, ymn = ymn, ymx = ymx, crs = crs)
-        return( DEM_nosink )
+        partition <- raster(SinkFill_result$partition, xmn = xmn, xmx = xmx, ymn = ymn, ymx = ymx, crs = crs)
+        result <- list(DEM_nosink, partition)
+        names(result) <- c("DEM_nosink", "partition")
+        return( result )
     }
 
 

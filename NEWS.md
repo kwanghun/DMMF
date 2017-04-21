@@ -1,5 +1,10 @@
 ## News for Package `DMMF`
 
+#### Changes in DMMF version 0.3.1.0
+- Modifying function ` for detect boundary, sink, and stand cells.
+- `B_checker` function is merged to the `MapChecker` function.
+- Modify the `SinkFill` algorithm and `BoundaryCheck` algorithm to work properly.
+
 #### Changes in DMMF version 0.3.0.0
 - Add function `MapChecker` for detect boundary, sink, and stand cells.
 - `B_checker` function is merged to the `MapChecker` function.

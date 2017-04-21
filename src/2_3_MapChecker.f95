@@ -36,7 +36,7 @@ subroutine mapchecker(DEM, nr, nc, boundary, sink, stand)
     where(boundary .gt. 0.0d0) boundary = 1.0d0
     where(boundary .eq. 0.0d0) boundary = NaN
     where(sink .gt. 0.0d0) sink = NaN
-    where(stand .eq. 0.0d0) stand = NaN
+    where(stand .gt. 0.0d0) stand = NaN
     where(sink .eq. 0.0d0) sink = 1.0d0
     where(stand .eq. 0.0d0) stand = 1.0d0
 

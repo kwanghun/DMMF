@@ -67,7 +67,7 @@ DMMF_Simple( W, L = W/cos(S), S, R, RI, ET,
 }
 \references{
     Choi, K., Arnhold, S., Huwe, B., Reineking, B. (2017). 
-    Daily based Morgan--Morgan--Finney (DMMF) model: A spatially distributed conceptual soil erosion model to simulate complex soil surface configurations. \emph{Submitted to Water in Feb, 2017}. 
+    Daily based Morgan--Morgan--Finney (DMMF) model: A spatially distributed conceptual soil erosion model to simulate complex soil surface configurations. \emph{Water}, 9(4), 278. 
 
     Shin, S. S., Park, S. D., and Choi, B. K. (2016). 
     Universal power law for relationship between rainfall kinetic energy and rainfall intensity. \emph{Advances in Meteorology}, Article ID 2494681, 11 pages.

@@ -9,7 +9,7 @@ static const R_FortranMethodDef FortranEntries[] = {
     {"ke",            (DL_FUNC) &F77_SUB(ke),             5},
     {"mdinf",         (DL_FUNC) &F77_SUB(mdinf),          1},
     {"slope",         (DL_FUNC) &F77_SUB(slope),          3},
-    {"sinkfill",      (DL_FUNC) &F77_SUB(sinkfill),       7},
+    {"sinkfill",      (DL_FUNC) &F77_SUB(sinkfill),       8},
     {"checkboundary", (DL_FUNC) &F77_SUB(checkboundary),  4},
     {"mapchecker",   (DL_FUNC) &F77_SUB(mapchecker),    6},
     {NULL, NULL, 0}
