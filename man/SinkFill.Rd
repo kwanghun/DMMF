@@ -13,7 +13,7 @@
     \item{min_angle}{Numeric object of angle to make slope between cells (unit: rad)}
 }
 \details{
-    The function is the implementation of sink-fill algorithm from Wang \& Liu (2006), which is already implemented as a SAGA-GIS module (see Wichmann (2007)).\cr
+    The function is the implementation of sink-fill algorithm from Wang and Liu (2006), which is already implemented as a SAGA-GIS module (see Wichmann (2007)).\cr
   The function \code{SinkFill} is modified from the original algorithm with including the option to set the initial boundary manually (e.g., global sink of the field).  
 }
 \value{
@@ -22,7 +22,7 @@
 }
 \references{
     Volker Wichmann (2007). 
-    Module Fill Sinks (Wang \& Liu). SAGA-GIS Module Library Documentation (v2.1.3) [ cited 2015. 08. 15 ], Available from: \url{http://www.saga-gis.org/saga_tool_doc/2.1.3/ta_preprocessor_4.html}
+    Module Fill Sinks (Wang & Liu). SAGA-GIS Module Library Documentation (v2.1.3) [ cited 2015. 08. 15 ], Available from: \url{http://www.saga-gis.org/saga_tool_doc/2.1.3/ta_preprocessor_4.html}
 
     Wang, L. and Liu, H. (2006). 
     An efficient method for identifying and filling surface depressions in digital elevation models for hydrologic analysis and modelling. \emph{International Journal of Geographical Information Science}, 20(2):193--213.

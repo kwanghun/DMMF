@@ -3,7 +3,7 @@ DMMF <-
              SD, K, P_I, n_s, CC, GC, IMP, PH, D, NV, d_a = 0.005, 
              DK_c = 0.1, DK_z = 0.5, DK_s = 0.3, 
              DR_c = 1.0, DR_z = 1.6, DR_s = 1.5, 
-             Breaking, Init_point, R_Type = 0, slpMode = 2, ALL = TRUE)
+             Breaking, Init_point, Sinks, R_Type = 0, slpMode = 2, ALL = TRUE)
 {
         # Input variable check
         # 1. DEM check
@@ -15,13 +15,16 @@ DMMF <-
             ymn     <- extent(DEM)[3]
             ymx     <- extent(DEM)[4]
             crs     <- proj4string(DEM)
+
+            # Calculate the valid cells in DEM (Cells that does not have "NA").
+            vc <- cellStats(!is.na(DEM), sum)
+
             # Convert format of a DEM from raster to matrix for FORTRAN subroutine.  
+            DEM[is.na(DEM)] <- -999999 
             DEM_m   <- as.matrix( DEM )
             # Create mask matrix for FORTRAN subroutine.
             mask    <- 0 * DEM
             mask_m  <- as.matrix( mask )
-            # Calculate the valid cells in DEM (Cells that does not have "NA").
-            vc <- cellStats(!is.na(DEM), sum)
         }else{
             stop("Missing or invalid type of DEM")
         }
@@ -111,6 +114,16 @@ DMMF <-
 
             theta_init_m  <- as.array( brick( replicate( as.integer( sum(Init_point) ), mask ) ) + theta_init )
 
+        # 9. Set Sinks 
+            if( missing( Sinks ) )
+            {
+                Sinks_m <- mask_m - 999999
+            }else{
+                vc <- vc - cellStats(!is.na(Sinks), sum)
+                Sinks[is.na(Sinks)] <- -999999 
+                Sinks_m   <- as.matrix( Sinks )
+            }
+                
 
         MMF_result <- .Fortran( C_dmmf, DEM = DEM_m, nr = nrow(DEM), nc = ncol(DEM), 
                                res = res, option = as.integer(slpMode), days = as.integer(days), 
@@ -126,7 +139,7 @@ DMMF <-
                                Breaking = as.integer(Breaking), 
                                N_out = as.integer(N_out), 
                                vc = as.integer(vc), 
-                               Init_point = as.integer(Init_point),
+                               Init_point = as.integer(Init_point), sinks = Sinks_m,
                                 A = mask_m, Rf_r = mask_out, SW_c_r = mask_out, 
                                 theta_r_r = mask_out, TC_r = mask_out,
                                 Q_in_r = mask_out, Q_out_r = mask_out, 

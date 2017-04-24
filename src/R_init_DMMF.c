@@ -5,7 +5,7 @@
 
 /* .Fortran calls */
 static const R_FortranMethodDef FortranEntries[] = {
-    {"dmmf",          (DL_FUNC) &F77_SUB(dmmf),          60},
+    {"dmmf",          (DL_FUNC) &F77_SUB(dmmf),          61},
     {"ke",            (DL_FUNC) &F77_SUB(ke),             5},
     {"mdinf",         (DL_FUNC) &F77_SUB(mdinf),          1},
     {"slope",         (DL_FUNC) &F77_SUB(slope),          3},

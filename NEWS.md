@@ -1,5 +1,9 @@
 ## News for Package `DMMF`
 
+#### Changes in DMMF version 0.3.2.0
+- Modify `SinkFill` and `DMMF` functions.
+- Add `Sinks` option to the `DMMF` function, which enables the function to consider sinks such as streams, and reservoirs. 
+
 #### Changes in DMMF version 0.3.1.0
 - Modifying function ` for detect boundary, sink, and stand cells.
 - `B_checker` function is merged to the `MapChecker` function.

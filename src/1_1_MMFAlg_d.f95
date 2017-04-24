@@ -2,7 +2,7 @@ subroutine DMMF( DEM, nr, nc, res, option, days, R, RI, R_Type, ET,&
         P_c, P_z, P_s, theta_init, theta_sat, theta_fc, SD, K,& 
         P_I, n_s, d_a, CC, GC, IMP, PH, D, NV,&
         DK_c, DK_z, DK_s, DR_c, DR_z, DR_s,&
-        Breaking, N_out, vc, Init_point,&
+        Breaking, N_out, vc, Init_point, sinks,&
         A, Rf_r, SW_c_r, theta_r_r, TC_r,&
         Q_in_r, Q_out_r, IF_in_r, IF_out_r,& 
         SS_c_r, SS_z_r, SS_s_r, G_c_r, G_z_r, G_s_r,&
@@ -66,7 +66,7 @@ subroutine DMMF( DEM, nr, nc, res, option, days, R, RI, R_Type, ET,&
     ! surface
     ! d_a: rill depth for the real surface condition
     integer, dimension( days ) :: Breaking, Init_point
-    double precision, dimension( nr, nc ) :: DEM
+    double precision, dimension( nr, nc ) :: DEM, sinks
     double precision, dimension( nr, nc, days ) :: R, RI, ET
     double precision, dimension( nr, nc ) :: P_c, P_z, P_s,& 
         theta_sat, theta_fc, SD, K
@@ -150,7 +150,7 @@ subroutine DMMF( DEM, nr, nc, res, option, days, R, RI, R_Type, ET,&
     ! These are the dummy variables for calculation.
     ! mask: logical matrix for maxloc function to apply algorithm from highest
     ! altitude to the lowest.
-    logical, dimension( nr, nc ) :: mask
+    integer, dimension( nr, nc ) :: mask
     ! b_DEM: DEM matrix with buffers.
     double precision, dimension( 0:( nr + 1 ), 0:( nc + 1 ) ) :: b_DEM
     ! m_block: sliced matrix of 3 X 3 from DEM matrix.
@@ -180,7 +180,11 @@ subroutine DMMF( DEM, nr, nc, res, option, days, R, RI, R_Type, ET,&
     double precision, dimension( vc ) :: slp, L
     double precision, dimension( 3, 3, vc ) :: weight_m
 
-mask = .true.
+where( DEM .lt. -99999 ) DEM = NaN
+where( sinks .lt. -99999 ) sinks = NaN
+where( sinks .ge. -99999 ) sinks = 1.0d0
+mask = 1
+
 ! Initialize b_DEM using DEM and make buffers as NaN.
 b_DEM = NaN; b_DEM( 1:nr, 1:nc ) = DEM
 ! Initialize the area and the width of elements (cells)
@@ -188,10 +192,13 @@ b_DEM = NaN; b_DEM( 1:nr, 1:nc ) = DEM
 ! Width is fixed as a resolution of DEM.
 A = NaN; W = res
 do i = 1, vc
-    max_loc = maxloc( DEM, mask = mask )
+    max_loc = maxloc( DEM,& 
+        mask = ( ( .not. isnan( DEM ) )&
+        .and. isnan( sinks ) &
+        .and. ( mask .eq. 1 ) ) )
     row = max_loc( 1 ); col = max_loc( 2 )
     row_s( i ) = row; col_s( i ) = col
-    mask( row, col ) = .false.
+    mask( row, col ) = 0
     ! m_block is the 3 X 3 sliced matrix around the element. 
     m_block = b_DEM( ( row - 1 ):( row + 1 ), ( col - 1 ):( col + 1 ) )
     ! m_weight is the 3 X 3 weight matrix for runoff and sediment

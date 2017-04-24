@@ -3,7 +3,7 @@
 \title{Example data from the convex potato field from Arnhold et al. (2013)}
 \concept{datasets}
 \description{
-    Example input data for running the \code{\link{DMMF}} function. This data is based on the field data from the convex potato field described in Arnhold et al. (2013).with optimized parameters described in Choi et al. (2017).
+    Example input data for running the \code{\link{DMMF}} function. This data is based on the field data from the convex potato field described in Arnhold et al. (2013) with optimized parameters described in Choi et al. (2017).
 }   
 \usage{
 Potato.Convex
