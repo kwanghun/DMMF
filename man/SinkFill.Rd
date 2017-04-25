@@ -18,7 +18,7 @@
 }
 \value{
     If \code{Boundary} is missing, function automatically identifies internal and external boundary of the input DEM which is in contact with cells having NaN value. 
-    The output of the function \code{SinkFill} is a list of RasterLayer objects of the sinkfilled DEM (\code{$nosink}) and partitions (\code{$partition}) of the area for the \code{\link{DMMF}} model.
+    The output of the function \code{SinkFill} is a list of RasterLayer objects of the sinkfilled DEM (\code{$DEM_nosink}) and partitions (\code{$partition}) of the area for the \code{\link{DMMF}} model.
 }
 \references{
     Volker Wichmann (2007). 
@@ -39,7 +39,7 @@ attach(Potato.Convex)
 ## Run SinkFill function with original DEM which has internal sinks.
 DEM_with_sink <- s.map$DEM_original
 DEM_sinkfilled <- SinkFill( DEM_with_sink )
-DEM_nosink <- DEM_sinkfilled$nosink
+DEM_nosink <- DEM_sinkfilled$DEM_nosink
 partitions <- DEM_sinkfilled$partition
 ## Check maps
 par(mfrow=c(2,2))
